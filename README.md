@@ -25,3 +25,7 @@ They can either be declared as enivronment variables or inside the `.env` file
 | `HERMINE_PASSWORD` | Password for Hermine |
 | `HERMINE_ENCRYPTION_KEY` | Encryption password for Hermine |
 | `HERMINE_CHANNEL_ID` | Channel id the details shall be pushed to |
+
+### Running in docker
+The script can be scheduled with cron inside a docker container.
+Simply configure the `.env` file and runf `docker compose up`.
