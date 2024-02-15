@@ -1,0 +1,9 @@
+version: "3.9"
+volumes:
+  diveraherminebot_env:
+services:
+    diveraherminebot:
+        container_name: diveraherminebot
+        build: .
+        volumes:
+        - diveraherminebot_env:/usr/app
