@@ -18,9 +18,9 @@ def load_news(client: DiveraApiClient):
     return converter.divera_news_response_to_news(allNews)
 
 
-def get_tomorrows_news(news: list):
+def get_news_in_three_days(news: list) -> News:
     for news_object in news:
-        if news_object.is_tomorrow():
+        if news_object.is_in_three_days():
             return news_object
     return None
 
@@ -55,13 +55,13 @@ def main():
 
     divera = create_divera(DIVERA_USER, DIVERA_PASSWORD, DIVERA_ACCESS_KEY)
     news = load_news(divera)
-    tomorrow_news = get_tomorrows_news(news)
+    news_to_publish = get_news_in_three_days(news)
 
-    if tomorrow_news is None:
+    if news_to_publish is None:
         return
 
     hermine = create_hermine(HERMINE_USER, HERMINE_PASSWORD, HERMINE_CLIENT_KEY, HERMINE_ENCRYPTION_KEY)
-    send_in_hermine(hermine, HERMINE_CHANNEL_ID, tomorrow_news.format())
+    send_in_hermine(hermine, HERMINE_CHANNEL_ID, news_to_publish.format())
 
     dotenv_path = dotenv.find_dotenv()
     dotenv.set_key(dotenv_path, "HERMINE_CLIENT_KEY", hermine.client_key)
