@@ -3,4 +3,4 @@
 	url = https://gitlab.com/aeberhardt/stashcat-api-client.git
 [submodule "Divera"]
 	path = Divera
-	url = git@github.com:wolfi1k/Divera.git
+	url = https://github.com/wolfi1k/Divera.git
