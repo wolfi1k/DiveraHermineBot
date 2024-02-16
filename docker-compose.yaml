@@ -4,6 +4,7 @@ volumes:
 services:
     diveraherminebot:
         container_name: diveraherminebot
+        restart: always
         build: .
         volumes:
         - diveraherminebot_env:/usr/app
