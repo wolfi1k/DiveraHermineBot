@@ -14,7 +14,7 @@ RUN crontab /etc/cron.d/cronfile
 
 #Copy python files
 COPY ./*.py .
-COPY ./.env ./.env
+COPY ./.env .
 
 WORKDIR /usr/app/Divera
 COPY ./Divera/*.py .
