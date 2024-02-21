@@ -1,7 +1,6 @@
 FROM python:3.8
 ENV TZ="Europe/Berlin"
-# Ensure cron
-RUN apt update && apt -y remove cron
+
 RUN apt update && apt -y install cron
 
 WORKDIR /usr/app
